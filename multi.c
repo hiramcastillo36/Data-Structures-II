@@ -17,14 +17,14 @@ void no_se(Prueba *ejemplo){
 
 int main(void){
     Prueba aux;
-    Prueba ejemplo;
+    Prueba *ejemplo;
     
     //no_se(&ejemplo);
-    (&ejemplo)->tipo = malloc(sizeof (Tipo1));
-    ((Tipo1*)(&ejemplo)->tipo)->x=5;
-    printf("%d", ((Tipo1*)(&ejemplo)->tipo)->x);
+    (ejemplo)->tipo = malloc(sizeof (Tipo1));
+    ((Tipo1*)(ejemplo)->tipo)->x=5;
+    printf("%d", ((Tipo1*)(ejemplo)->tipo)->x);
     printf("%p", &ejemplo);
-    free((&ejemplo)->tipo);
+    free(ejemplo->tipo);
     int **matriz;
     int n=5, m=7;
     matriz = (int **)malloc(n * sizeof(int *));
@@ -34,7 +34,12 @@ int main(void){
             *(*(matriz+i)+j) = 5;
         }
     }
-
+for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            scanf("%d", (*(matriz + i)+j));
+        }
+        scanf("\n");
+    }
     for(int i=0; i<n; i++){
         for(int j=0; j<m; j++){
             printf("%d", *(*(matriz + i)+j));
