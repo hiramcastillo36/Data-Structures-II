@@ -16,7 +16,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends locales
 RUN apt update
 RUN apt install make
 RUN apt install -y build-essential
-
+RUN apt install gcc
+RUN apt -y install gdb
+RUN apt install valgrind
+RUN apt install g++
+RUN apt -y install default-jdk
 WORKDIR /root/workspace
 
 ENV LANG=en_US.UTF-8 
